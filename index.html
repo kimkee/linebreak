@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <style>
+div.list{display: flex; flex-wrap: wrap; gap: 5px;}
+div.list span{white-space:nowrap; border: #dddddd solid 1px; border-radius: 5px; font-size: 11px; padding: 2px 14px; background: #eeeeee;}
+div.list span.last-in-row {  color: red;}
+div.list span.first-in-row {  color: blue;}
+
+    </style>  
+  </head>
+  <body>
+    <div id="app">
+      <div class="list">
+        <span>ABCDEFG</span>
+        <span>가나다라</span>
+        <span>아자차카</span>
+        <span>456</span>
+        <span>7890</span>
+        <span>123</span>
+        <span>456</span>
+        <span>7890</span>
+        <span>WX</span>
+        <span>YZ</span>
+        <span>123</span>
+        <span>HIJKLMNOP</span>
+        <span>QRS</span>
+        <span>TUV</span>
+        <span>WX</span>
+        <span>아자차카</span>
+        <span>456</span>
+        <span>7890</span>
+        <span>123</span>
+        <span>456</span>
+        <span>123</span>
+        <span>456</span>
+        <span>7890</span>
+        <span>7890</span>
+        <span>WX</span>
+        <span>YZ</span>
+        <span>123</span>
+        <span>YZ</span>
+        <span>마바사</span>
+        <span>아자차카</span>
+        <span>타파하</span>
+        <span>타파하</span>
+         <span>ABCDEFG</span>
+        <span>HIJKLMNOP</span>
+        <span>QRS</span>
+        <span>TUV</span>
+        <span>가나다라</span>
+        <span>마바사</span>
+        <span>아자차카</span>
+        <span>456</span>
+        <span>7890</span>
+        <span>123</span>
+        <span>456</span>
+        <span>7890</span>
+        <span>WX</span>
+        <span>YZ</span>
+        <span>123</span>
+      </div>
+    </div>
+    <script>
+    const lineBreak = ()=>{
+	const spans = document.querySelectorAll('div.list span');
+  let prevTop = spans[0].getBoundingClientRect().top;
+  let lastInRow = spans[0];
+  lastInRow.classList.add("first-in-row")
+  spans.forEach((span) => {
+    if (span.getBoundingClientRect().top > prevTop) {
+      lastInRow.classList.add('last-in-row');
+      lastInRow.nextElementSibling.classList.add("first-in-row")
+			lastInRow = span;
+      prevTop = span.getBoundingClientRect().top;
+    } else {
+
+      lastInRow.classList.remove('last-in-row');
+      lastInRow.nextElementSibling.classList.remove("first-in-row")
+      lastInRow = span;
+    }
+  });
+  lastInRow.classList.add('last-in-row');
+}
+window.addEventListener("load",lineBreak);
+window.addEventListener("resize",lineBreak);
+
+    </script>
+</body>
+
+</html>
