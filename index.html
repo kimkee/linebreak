@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
-<style>
-body{background-color: #222222;}
-div.list{display: flex; flex-wrap: wrap; gap: 5px;}
-div.list span{white-space:nowrap; border: #dddddd solid 1px; border-radius: 5px; font-size: 11px; padding: 2px 14px; background: #eeeeee;}
-div.list span.last {  color: red;}
-div.list span.first {  color: blue;}
-</style>  
+    <title>줄바꿈</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <style>
+    body{background-color: #343434;}
+    ul.list{display: flex; flex-wrap: wrap; gap: 5px; margin: 0; padding: 0;}
+    ul.list li{white-space:nowrap;display: inline-flex;list-style: none;border: #161616 solid 1px;border-radius: 5px;font-size: 12px;padding: 5px 14px;background: #eeeeee;}
+    ul.list li.last {color: white;background: #ed4b4b;}
+    ul.list li.first {color: white;background: #0e639c;}
+    </style>
 </head>
 <body>
-    <div id="app">
-        <div class="list">
-            <span>ABCDEFG</span> <span>가나다라</span> <span>아자차카</span> <span>456</span> <span>7890</span> <span>123</span> <span>456</span> <span>7890</span>
-            <span>WX</span> <span>YZ</span> <span>123</span> <span>HIJKLMNOP</span> <span>QRS</span> <span>TUV</span> <span>WX</span> <span>아자차카</span> <span>456</span>
-            <span>7890</span> <span>123</span> <span>456</span> <span>123</span> <span>456</span> <span>7890</span> <span>7890</span> <span>WX</span> <span>YZ</span>
-            <span>123</span> <span>YZ</span> <span>마바사</span> <span>아자차카</span> <span>타파하</span> <span>타파하</span> <span>ABCDEFG</span> <span>HIJKLMNOP</span>
-            <span>QRS</span> <span>TUV</span> <span>가나다라</span> <span>마바사</span> <span>아자차카</span> <span>456</span> <span>7890</span> <span>123</span>
-            <span>456</span> <span>7890</span> <span>WX</span> <span>YZ</span> <span>123</span>
-        </div>
-    </div>
+    
+    <ul class="list">
+        <li>비빔밥</li><li>불고기</li><li>된장찌개</li><li>김치찌개</li><li>갈비탕</li><li>삼계탕</li><li>해장국</li><li>물냉면</li>
+        <li>비빔냉면</li><li>김치볶음밥</li><li>잡채밥</li><li>제육볶음</li><li>갈치조림</li><li>돌솥밥</li><li>더덕구이</li>
+        <li>삼겹살</li><li>보쌈</li><li>김치전</li><li>계란말이</li><li>닭갈비</li><li>고등어조림</li><li>알탕</li>
+        <li>육전</li><li>장어구이</li><li>해물파전</li><li>소고기국밥</li><li>불낙전골</li><li>닭도리탕</li><li>불릿고기</li><li>오징어볶음</li>
+    </ul>
+
     <script>
     const lineBreak = ()=>{
-        const spans = document.querySelectorAll('div.list span');
+        const spans = document.querySelectorAll('ul.list li');
         let prevTop = spans[0].getBoundingClientRect().top;
         let lastInRow = spans[0];
         lastInRow.classList.add("first")
